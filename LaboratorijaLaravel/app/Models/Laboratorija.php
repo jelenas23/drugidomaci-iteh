@@ -8,6 +8,13 @@ use App\Models\Laborant;
 
 class Laboratorija extends Model
 {
+    protected $fillable = [
+        'naziv',
+        'adresa',
+        'email',
+        'website'
+    ];
+
     use HasFactory;
 
     public function laboranti(){

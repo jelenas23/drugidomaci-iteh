@@ -9,6 +9,14 @@ use App\Models\Izvestaj;
 
 class Laborant extends Model
 {
+    protected $fillable = [
+        'ime',
+        'prezime',
+        'pol',
+        'email',
+        'laboratorija_id'
+    ];
+    
     use HasFactory;
 
     public function laboratorija(){

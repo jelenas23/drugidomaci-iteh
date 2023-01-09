@@ -8,6 +8,13 @@ use App\Models\Laborant;
 
 class Izvestaj extends Model
 {
+    protected $fillable = [
+        'pacijent',
+        'datum',
+        'komentar',
+        'laborant_id'
+    ];
+
     use HasFactory;
 
     public function laborant(){

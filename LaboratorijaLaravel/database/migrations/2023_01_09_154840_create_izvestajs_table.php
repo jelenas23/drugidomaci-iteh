@@ -18,6 +18,7 @@ class CreateIzvestajsTable extends Migration
             $table->string('ime_pacijenta');
             $table->date('datum');
             $table->string('komentar');
+            $table->foreignId('izvestaj_id')->constrained('izvestajs');
             $table->timestamps();
         });
     }
