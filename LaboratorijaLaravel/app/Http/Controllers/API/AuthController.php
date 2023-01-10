@@ -40,4 +40,32 @@ class AuthController extends Controller
         return response()->json($response);
     }
 
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors());
+        }
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json(['poruka' => 'Pogresan email ili password!']);
+        }
+
+        $user = User::where('email', $request['email'])->firstOrFail();
+
+        $token = $user->createToken('LoginToken')->plainTextToken;
+
+        $response = [
+            'user' => $user,
+            'token' => $token,
+        ];
+
+        return response()->json($response);
+    }
+
+
 }
