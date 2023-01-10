@@ -17,8 +17,8 @@ class IzvestajFactory extends Factory
         return [
            
             'pacijent' => $this->faker->name(),
-            'datum' => $this->faker->lastName(),
-            'komentar' => $this->faker->unique()->email(),
+            'datum' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
+            'komentar' => $this->faker->text($maxNbChars = 50),
             'laborant_id' => Laborant::factory()     
     
         ];
