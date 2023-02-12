@@ -14,6 +14,13 @@ class LaboratorijaResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->resource->id,
+            'naziv' => $this->resource->naziv,
+            'adresa' => $this->resource->adresa,
+            'email' => $this->resource->email,
+            'webiste' => $this->resource->website
+        ];
+
     }
 }
